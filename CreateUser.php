@@ -33,6 +33,8 @@
 		    /* free result set */
 		    $result->free();
 		}
+		else
+			echo "Whoops";
 		
 		#if there's a match, display error message
 		if($duplicateFlag)
@@ -42,9 +44,9 @@
 		#else create new row in database
 		else
 		{
-			$query = "INSERT INTO users(" . $uName . ");";
+			$query = "INSERT INTO users VALUES('" . $uName . "');";
 
-			if($mysqli->query($query))
+			if($result = $mysqli->query($query))
 				echo "<center>User successfully created!</center>";
 			else
 				echo "<center>Something went wrong, user unsuccessfully created!</center>";

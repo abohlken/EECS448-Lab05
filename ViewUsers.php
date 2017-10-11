@@ -10,7 +10,7 @@
 	
 	echo "<ul>";
 	
-        #attempt to put the post into the database
+        #attempt to obtain user IDs from table users
         $query = 'SELECT User_ID FROM users';
 
         if($result = $mysqli->query($query))

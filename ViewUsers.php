@@ -1,4 +1,5 @@
 <?php
+        echo "<html><body>";
 	$mysqli = new mysqli("mysql.eecs.ku.edu", "abohlken", "abohlken", "abohlken");
 
 	/* check connection */
@@ -7,14 +8,24 @@
 	    exit();
 	}
 	
+	echo "<ul>";
+	
         #attempt to put the post into the database
-        $query = 'INSERT INTO posts (Author_ID, Content) VALUES("' . $uName . '","' . $content . '");';
+        $query = 'SELECT FROM users';
 
         if($result = $mysqli->query($query))
-                echo "<center>Post successfully created!</center>";
-        else
-                echo "<center>Username invalid! Please choose an existing username!</center>";
+        {
+            /* fetch associative array */
+            while ($row = $result->fetch_assoc()) {
+                echo "<li>" . $row["User_ID"] . "</li>";
+            }
+
+            /* free result set */
+            $result->free();
+        }
 
 	/* close connection */
 	$mysqli->close();
+	
+	echo "</ul></body></html>";
 ?>

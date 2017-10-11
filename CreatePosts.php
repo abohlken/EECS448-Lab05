@@ -18,7 +18,7 @@
 	else
 	{
 		#attempt to put the post into the database
-                $query = "INSERT INTO posts (Author_ID, Content) VALUES('" . $uName . "','" . $content . "');";
+                $query = 'INSERT INTO posts (Author_ID, Content) VALUES("' . $uName . '","' . $content . '");';
 
                 if($result = $mysqli->query($query))
                         echo "<center>Post successfully created!</center>";

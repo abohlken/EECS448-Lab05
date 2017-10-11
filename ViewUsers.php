@@ -11,7 +11,7 @@
 	echo "<ul>";
 	
         #attempt to put the post into the database
-        $query = 'SELECT FROM users';
+        $query = 'SELECT User_ID FROM users';
 
         if($result = $mysqli->query($query))
         {
@@ -23,6 +23,8 @@
             /* free result set */
             $result->free();
         }
+        else
+            echo "Bad Query";
 
 	/* close connection */
 	$mysqli->close();

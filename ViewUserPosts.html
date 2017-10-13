@@ -3,8 +3,8 @@
 		<title>View User Posts</title>
 	</head>
 	<body>
-		<form action="ViewUserPosts.php" action="post">
-			<select name="uname">
+		<form action="ViewUserPosts.php" method="post">
+			<select name="uname" id="uname">
 				<?php   
                                         $mysqli = new mysqli("mysql.eecs.ku.edu", "abohlken", "abohlken", "abohlken");
 

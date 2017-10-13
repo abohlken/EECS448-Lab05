@@ -10,10 +10,10 @@
 	    exit();
 	}
 	
-	echo "<tr><th>Posts by" . $uName . "</th></tr>";
+	echo "<tr><th>Posts by " . $uName . "</th></tr>";
 	
 	#attempt to obtain all user IDs
-	$query = 'SELECT Content FROM posts WHERE Author_ID=' . $uName;
+	$query = 'SELECT Content FROM posts WHERE Author_ID="' . $uName . '";';
 
 	if($result = $mysqli->query($query))
 	{

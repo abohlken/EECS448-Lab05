@@ -22,7 +22,7 @@
 					{
 							/* fetch associative array */
 							while ($row = $result->fetch_assoc()) {
-									echo "<tr><td>" . $row["Content"] . "</td><td>" . $row["Author_ID"] . "</td><td><input type='checkbox' value='posts' name='" . $row["Post_ID"] . "'></td></tr>";
+									echo "<tr><td>" . $row["Content"] . "</td><td>" . $row["Author_ID"] . "</td><td><input type='checkbox' name='postsToDelete[]' value='" . $row["Post_ID"] . "'></td></tr>";
 							}
 
 							/* free result set */

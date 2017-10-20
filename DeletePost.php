@@ -16,12 +16,12 @@
 
 			if($result = $mysqli->query($query))
 			{
-				echo "<center>Post with ID" . $post . " successfully deleted!</center>";
+				echo "<center>Post with ID " . $post . " successfully deleted!</center>";
 					/* free result set */
 					$result->free();
 			}
 			else {
-				echo "<center>Post with ID" . $post . " deletion unsuccessful!</center>"
+				echo "<center>Post with ID " . $post . " deletion unsuccessful!</center>";
 			}
 		}
 	}

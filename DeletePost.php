@@ -8,19 +8,21 @@
 			printf("Connect failed: %s\n", $mysqli->connect_error);
 			exit();
 		}
-		
-		#attempt to obtain all user IDs
-		$query = 'SELECT Post_ID FROM posts;';
 
-		if($result = $mysqli->query($query))
+		foreach($_POST['postsToDelete'] as $post)
 		{
-				/* fetch associative array */
-				while ($row = $result->fetch_assoc()) {
-						if($_POST[$row["Post_ID"]] 
-				}
+			#attempt to obtain all user IDs
+			$query = 'DELETE FROM posts WHERE Post_ID="' . $post . '";';
 
-				/* free result set */
-				$result->free();
+			if($result = $mysqli->query($query))
+			{
+				echo "<center>Post with ID" . $post . " successfully deleted!</center>";
+					/* free result set */
+					$result->free();
+			}
+			else {
+				echo "<center>Post with ID" . $post . " deletion unsuccessful!</center>"
+			}
 		}
 	}
 	else

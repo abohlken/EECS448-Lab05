@@ -14,7 +14,7 @@
 						printf("Connect failed: %s\n", $mysqli->connect_error);
 						exit();
 					}
-					
+
 					#attempt to obtain all user IDs
 					$query = 'SELECT Content,Author_ID,Post_ID FROM posts;';
 
@@ -29,13 +29,14 @@
 							$result->free();
 					}
 					else
-						echo "<tr><td>No posts made by this user yet.</td></tr>";
+						echo "<tr><td>No posts made yet.</td></tr>";
 
 					/* close connection */
 					$mysqli->close();
 				?>
 			</table>
 			<button type="submit" value="Submit">Submit</button>
+			<button type="reset" value="Reset">Reset</button>
 		</form>
 	</body>
 </html>

@@ -1,0 +1,41 @@
+<html>
+	<head>
+		<title>Delete Posts</title>
+	</head>
+	<body>
+		<form action="DeletePost.php" method="post">
+			<table>
+				<tr><th>Posts</th><th>Author</th><th></th></tr>
+				<?php
+					$mysqli = new mysqli("mysql.eecs.ku.edu", "abohlken", "abohlken", "abohlken");
+
+					/* check connection */
+					if ($mysqli->connect_errno) {
+						printf("Connect failed: %s\n", $mysqli->connect_error);
+						exit();
+					}
+					
+					#attempt to obtain all user IDs
+					$query = 'SELECT Content,Author_ID,Post_ID FROM posts;';
+
+					if($result = $mysqli->query($query))
+					{
+							/* fetch associative array */
+							while ($row = $result->fetch_assoc()) {
+									echo "<tr><td>" . $row["Content"] . "</td><td>" . $row["Author_ID"] . "</td><td><input type='checkbox' value='posts' name='" . $row["Post_ID"] . "'></td></tr>";
+							}
+
+							/* free result set */
+							$result->free();
+					}
+					else
+						echo "<tr><td>No posts made by this user yet.</td></tr>";
+
+					/* close connection */
+					$mysqli->close();
+				?>
+			</table>
+			<button type="submit" value="Submit">Submit</button>
+		</form>
+	</body>
+</html>
